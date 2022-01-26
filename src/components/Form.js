@@ -80,7 +80,7 @@ function Form() {
   return <div>
             <h1>Register a new Student</h1>
             <h3>Personal Details:</h3>
-            <form >
+            <form autocomplete='off'>
                 <div className='in'>
                     <input type="text" placeholder="  Enter Student Name" name="name" onChange={nameChange} value={name}/><br/>
                     <input type="date" placeholder='Date of Birth' onChange={dobChange} value={dob}/>

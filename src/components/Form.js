@@ -8,7 +8,7 @@ function Form() {
     const [contact,setContact]=useState("");
     const [email,setEmail]=useState("");
     const [valid,setValid]=useState(false);
-    const [verify,setVerify]=useState(true)
+    // const [verify,setVerify]=useState(false)
     const nameChange=(e)=>{
         setName(e.target.value)
         isValidForm()
@@ -34,22 +34,22 @@ function Form() {
     };
     const isValidForm = () => {
 
-        if(name !== '' && time !=='' && contact !=='' && email !=='' && dob!==''){
+        if(name !== '' && dob!=='' && time !=='' && contact !==''   && email !==''){
             setValid(true);
         }else {
             setValid(false);
         }
     }
-    const verifyC=()=>{
-        setVerify(!verify)
-        console.log(verify)
-        if (verify==true){
-            isValidForm()
-        }
-        else{
-            setValid(false)
-        }
-    }
+    // const verifyC=()=>{
+    //     setVerify(!verify)
+    //     console.log(verify)
+    //     if (verify==true){
+    //         isValidForm()
+    //     }
+    //     else{
+    //         setValid(false)
+    //     }
+    // }
     const result=(e)=>{
         e.preventDefault();
         let dataStr={
@@ -62,7 +62,7 @@ function Form() {
         isValidForm()
         axios({
             method:"POST",
-            url:'https://her-shreersc-express-server.herokuapp.com/v1/admin/registerStudent',
+            url:'http://localhost:5000/students',
             data:dataStr,
             headers:{
                     'Content-Type': 'application/x-www-form-urlencoded' 
@@ -101,8 +101,8 @@ function Form() {
                     <input id="num"  placeholder="  Whatsapp Mobile Number" type="number" name="contact" onChange={contactChange} value={contact}/>
                     <input type="email" placeholder="  E-Mail" name="email" onChange={emailChange} value={email}/><br/>
                 </div>
-                <input type="checkbox" onClick={verifyC} id="checkVer"/>
-                <label htmlFor='checkVer'>I accept the terms and Conditions</label><br/><br/>
+                {/* <input type="checkbox" onClick={verifyC} id="checkVer"/>
+                <label htmlFor='checkVer'>I accept the terms and Conditions</label><br/><br/> */}
                 <button onClick={result} className ={valid ? 'buttonSave' : 'disableBtn'} disabled= {valid ? false : true} >Register New Student</button>
             </form>
             

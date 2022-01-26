@@ -96,7 +96,7 @@ function Form() {
                         <option value="1">US 1</option>
                         <option value="81">JP 81</option>
                     </select>
-                    <input id="num"  placeholder="  Whatsapp Mobile Number" type="number" name="contact" onChange={contactChange} value={contact}/><span>{validContact}</span>
+                    <input id="num"  placeholder="  Whatsapp Mobile Number" type="number" name="contact" onChange={contactChange} value={contact}/>
                     <input type="email" placeholder="  E-Mail" name="email" onChange={emailChange} value={email} /><span>{validEmail}</span><br/>
                 </div>
                 <button onClick={result} className ={valid ? 'buttonSave' : 'disableBtn'} disabled= {valid ? false : true} >Register New Student</button>
